@@ -4,6 +4,6 @@ curl -s  --cookie cookies.txt "https://clients.adcolony.com/reports/apps?d_inter
 curl -s --cookie cookies.txt "https://clients.adcolony.com/reports/apps?d_interval=this_month&d_start_date=20171101+00&d_end_date=20171116+23&idList=&report_metrics=Earnings%2CUSImpressions%2CUSEarnings%2CDARPU%2CFillRate%2CAllImpressions%2CAllVideoCompletes%2CeCPM&report_totals=Earnings%2CUSECPM%2CeCPM%2CDARPU%2CFillRate%2CAllImpressions%2CAllVideoCompletes&random_value=0.034552661361823445&api=true&v=2.0.2" > monthadcolony
 
 echo "Adcolony\n"
-cat todayadcolony     | sed 's/\\//g' | grep -Po '(?<="totals":{"Earnings":)[^,]+' | sed -e 's/^/Oggi$/'
-cat yesterdayadcolony | sed 's/\\//g' | grep -Po '(?<="totals":{"Earnings":)[^,]+' | sed -e 's/^/Ieri$/'
-cat monthadcolony     | sed 's/\\//g' | grep -Po '(?<="totals":{"Earnings":)[^,]+' | sed -e 's/^/Mese$/'
+cat todayadcolony     | sed 's/\\//g' | grep -Po '(?<="totals":{"Earnings":)[^,]+' | sed -e 's/^/Oggi $/'
+cat yesterdayadcolony | sed 's/\\//g' | grep -Po '(?<="totals":{"Earnings":)[^,]+' | sed -e 's/^/Ieri $/'
+cat monthadcolony     | sed 's/\\//g' | grep -Po '(?<="totals":{"Earnings":)[^,]+' | sed -e 's/^/Mese $/'
