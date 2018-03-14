@@ -11,6 +11,6 @@ curl -s  'https://selfservice.appnext.com/Revenue/Service.asmx/GetReport' --cook
 
 
 echo "\nAppnext\n"
-cat dailyappnext     | sed 's/\\//g' | grep -Po '(?<="Earning": )[^r]+' | sed -e 's/^/Oggi $/' 
-cat yesterdayappnext | sed 's/\\//g' | grep -Po '(?<="Earning": )[^r]+' | sed -e 's/^/Ieri $/' 
-cat monthlyappnext   | sed 's/\\//g' | grep -Po '(?<="Earning": )[^r]+' | sed -e 's/^/Mese $/' 
+cat dailyappnext     | grep -o -P "(?<=Earning).*" | sed "s/\\\//g" | grep -Po "(?<=:).*(?=}])" | sed -e 's/^/Oggi$/' 
+cat yesterdayappnext | grep -o -P "(?<=Earning).*" | sed "s/\\\//g" | grep -Po "(?<=:).*(?=}])" | sed -e 's/^/Ieri$/' 
+cat monthlyappnext   | grep -o -P "(?<=Earning).*" | sed "s/\\\//g" | grep -Po "(?<=:).*(?=}])" | sed -e 's/^/Mese$/' 
